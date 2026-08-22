@@ -12,11 +12,15 @@ let package = Package(
         // The library name uses "-" in place of the "_" in the plugin name.
         .library(name: "darwin-file-attributes", targets: ["darwin_file_attributes"])
     ],
-    dependencies: [],
+    dependencies: [
+        .package(name: "FlutterFramework", path: "../FlutterFramework")
+    ],
     targets: [
         .target(
             name: "darwin_file_attributes",
-            dependencies: [],
+            dependencies: [
+                .product(name: "FlutterFramework", package: "FlutterFramework")
+            ],
             resources: [
                 .process("Resources")
             ]
