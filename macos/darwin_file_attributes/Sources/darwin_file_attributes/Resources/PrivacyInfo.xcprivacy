@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<dict>
+			<!-- Apple currently requires reason declarations on iOS, iPadOS,
+			     tvOS, visionOS, and watchOS only, but getResourceValues/
+			     setResourceValues read and write
+			     URLResourceKey.creationDateKey and
+			     URLResourceKey.contentModificationDateKey here too, so the
+			     declaration is kept in sync with the iOS manifest. -->
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<!-- 0A2A.1: this plugin only wraps the timestamp APIs and only
+				     touches them when the app calls one of its methods. -->
+				<string>0A2A.1</string>
+				<!-- C617.1: timestamps of files inside the app container, app
+				     group container, or the app's CloudKit container. -->
+				<string>C617.1</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyTracking</key>
+	<false/>
+</dict>
+</plist>
