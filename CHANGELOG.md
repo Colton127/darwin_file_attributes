@@ -8,8 +8,7 @@
   systems, and declares `NSPrivacyAccessedAPICategoryFileTimestamp` (reasons
   `0A2A.1` and `C617.1`) for the `creationDate` / `contentModificationDate`
   resource keys.
-* Raised the macOS podspec deployment target to 10.14 to match Flutter's
-  minimum supported macOS version.
+* Raised the macOS podspec deployment target to 10.14
 
 ## 1.0.0
 
