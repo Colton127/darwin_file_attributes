@@ -5,7 +5,9 @@
   Manager builds require Flutter 3.44 or later, which vends the Flutter
   framework as the `FlutterFramework` Swift package.
 * The privacy manifest (`PrivacyInfo.xcprivacy`) is now bundled by both build
-  systems.
+  systems, and declares `NSPrivacyAccessedAPICategoryFileTimestamp` (reasons
+  `0A2A.1` and `C617.1`) for the `creationDate` / `contentModificationDate`
+  resource keys.
 * Raised the macOS podspec deployment target to 10.14 to match Flutter's
   minimum supported macOS version.
 

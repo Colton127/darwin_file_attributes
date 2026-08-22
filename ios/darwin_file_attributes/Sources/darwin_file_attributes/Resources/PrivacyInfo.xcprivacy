@@ -5,7 +5,25 @@
 	<key>NSPrivacyTrackingDomains</key>
 	<array/>
 	<key>NSPrivacyAccessedAPITypes</key>
-	<array/>
+	<array>
+		<dict>
+			<!-- getResourceValues/setResourceValues read and write
+			     URLResourceKey.creationDateKey and
+			     URLResourceKey.contentModificationDateKey, which are
+			     required reason APIs in the file timestamp category. -->
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<!-- 0A2A.1: this plugin only wraps the timestamp APIs and only
+				     touches them when the app calls one of its methods. -->
+				<string>0A2A.1</string>
+				<!-- C617.1: timestamps of files inside the app container, app
+				     group container, or the app's CloudKit container. -->
+				<string>C617.1</string>
+			</array>
+		</dict>
+	</array>
 	<key>NSPrivacyCollectedDataTypes</key>
 	<array/>
 	<key>NSPrivacyTracking</key>
