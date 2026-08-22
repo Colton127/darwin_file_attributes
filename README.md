@@ -9,26 +9,6 @@ attributes via Apple's `URLResourceValues` API and POSIX extended attributes
 | iOS      | 12.0+     |
 | macOS    | 10.14+    |
 
-## Installation
-
-```yaml
-dependencies:
-  darwin_file_attributes: ^1.0.0
-```
-
-The plugin supports both **Swift Package Manager** and **CocoaPods**. No extra
-setup is needed for CocoaPods. To build with Swift Package Manager, enable it
-once for your Flutter installation:
-
-```sh
-flutter config --enable-swift-package-manager
-```
-
-Flutter then resolves this plugin through the `Package.swift` manifests in
-`ios/darwin_file_attributes/` and `macos/darwin_file_attributes/`. See
-[Flutter's Swift Package Manager docs](https://docs.flutter.dev/packages-and-plugins/swift-package-manager/for-app-developers)
-for details.
-
 ## Quick Start
 
 ```dart
