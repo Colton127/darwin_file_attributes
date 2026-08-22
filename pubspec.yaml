@@ -1,6 +1,6 @@
 name: darwin_file_attributes
 description: "A Flutter plugin for reading and writing Darwin (iOS / macOS) file-system attributes."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Colton127/darwin_file_attributes/
 repository: https://github.com/Colton127/darwin_file_attributes/
 
