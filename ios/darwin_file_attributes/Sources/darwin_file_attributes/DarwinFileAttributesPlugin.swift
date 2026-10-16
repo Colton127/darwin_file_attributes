@@ -353,7 +353,7 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
 
     private static func fileProtectionFromString(_ s: String) -> URLFileProtection? {
         switch s {
-        case "none":                                return .none
+        case "none":                                return URLFileProtection.none
         case "complete":                            return .complete
         case "completeUnlessOpen":                  return .completeUnlessOpen
         case "completeUntilFirstUserAuthentication": return .completeUntilFirstUserAuthentication
@@ -363,7 +363,7 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
 
     private static func nsFileProtectionFromString(_ s: String) -> FileProtectionType? {
         switch s {
-        case "none":                                return .none
+        case "none":                                return FileProtectionType.none
         case "complete":                            return .complete
         case "completeUnlessOpen":                  return .completeUnlessOpen
         case "completeUntilFirstUserAuthentication": return .completeUntilFirstUserAuthentication

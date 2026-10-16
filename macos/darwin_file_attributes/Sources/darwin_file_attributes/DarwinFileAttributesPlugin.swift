@@ -78,7 +78,7 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
                         map[key] = Int64(d.timeIntervalSince1970 * 1000)
                     }
                 case "fileProtection":
-                    if let v = values.fileProtection {
+                    if #available(macOS 11.0, *), let v = values.fileProtection {
                         map[key] = Self.fileProtectionToString(v)
                     }
                 case "isUbiquitousItem":
@@ -320,7 +320,9 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
         case "isUserImmutable":                   return .isUserImmutableKey
         case "creationDate":                      return .creationDateKey
         case "contentModificationDate":           return .contentModificationDateKey
-        case "fileProtection":                    return .fileProtectionKey
+        case "fileProtection":
+            if #available(macOS 11.0, *) { return .fileProtectionKey }
+            return nil
         case "isUbiquitousItem":                  return .isUbiquitousItemKey
         case "ubiquitousItemDownloadingStatus":   return .ubiquitousItemDownloadingStatusKey
         case "ubiquitousItemIsUploaded":          return .ubiquitousItemIsUploadedKey
@@ -329,6 +331,7 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    @available(macOS 11.0, *)
     private static func fileProtectionToString(_ p: URLFileProtection) -> String {
         switch p {
         case .none:                                return "none"
@@ -339,9 +342,10 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
         }
     }
 
+    @available(macOS 11.0, *)
     private static func fileProtectionFromString(_ s: String) -> URLFileProtection? {
         switch s {
-        case "none":                                return .none
+        case "none":                                return URLFileProtection.none
         case "complete":                            return .complete
         case "completeUnlessOpen":                  return .completeUnlessOpen
         case "completeUntilFirstUserAuthentication": return .completeUntilFirstUserAuthentication
