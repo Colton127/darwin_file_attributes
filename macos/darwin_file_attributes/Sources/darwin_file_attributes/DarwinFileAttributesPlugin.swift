@@ -345,7 +345,7 @@ public class DarwinFileAttributesPlugin: NSObject, FlutterPlugin {
     @available(macOS 11.0, *)
     private static func fileProtectionFromString(_ s: String) -> URLFileProtection? {
         switch s {
-        case "none":                                return .none
+        case "none":                                return URLFileProtection.none
         case "complete":                            return .complete
         case "completeUnlessOpen":                  return .completeUnlessOpen
         case "completeUntilFirstUserAuthentication": return .completeUntilFirstUserAuthentication

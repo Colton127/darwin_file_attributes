@@ -1,3 +1,11 @@
+## 1.1.0
+
+* Fixed the macOS plugin failing to compile against its 10.14 deployment
+  target. The `fileProtection` resource key relies on macOS 11.0 APIs and is
+  now only read on macOS 11.0 or later; on older versions it is omitted.
+* Fixed setting `fileProtection` to `none` on iOS being silently ignored. The
+  `"none"` string was mapped to `nil` instead of `FileProtectionType.none`.
+
 ## 1.0.1
 
 * Added Swift Package Manager support for iOS and macOS. CocoaPods remains
@@ -9,9 +17,6 @@
   `0A2A.1` and `C617.1`) for the `creationDate` / `contentModificationDate`
   resource keys.
 * Raised the macOS podspec deployment target to 10.14
-* Fixed the macOS plugin failing to compile against its 10.14 deployment
-  target. The `fileProtection` resource key relies on macOS 11.0 APIs and is
-  now only read on macOS 11.0 or later; on older versions it is omitted.
 
 ## 1.0.0
 
